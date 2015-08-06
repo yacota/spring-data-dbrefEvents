@@ -4,6 +4,7 @@ import demo.model.Related;
 import demo.model.Root;
 import demo.repository.RelatedRepository;
 import demo.repository.RootRepository;
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +37,7 @@ public class DemoApplicationTests {
         lazy  = relatedRepo.save(lazy);
                 
         rootRepo.deleteAll();
-        Root root = new Root(1L, embed, ref, lazy);
+        Root root = new Root(1L, embed, ref, lazy, null, null);
         rootRepo.save(root);
     }
     

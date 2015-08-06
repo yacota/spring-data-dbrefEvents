@@ -40,8 +40,7 @@ import org.springframework.data.util.TypeInformation;
 import org.springframework.util.Assert;
 
 /**
- * The only relevant part here is the method potentiallyReadOrResolveDbRef the rest is pure copy&paster
- * 
+ * The only relevant part here is the method potentiallyReadOrResolveDbRef , readCollectionOrArray and the new readAndConvertDBRef. The rest is pure copy&paster
  */
 public class CustomMappingMongoConverter 
 extends      MappingMongoConverter {
@@ -59,28 +58,82 @@ extends      MappingMongoConverter {
     }
     
     //
-    // THE PROPOSED CHANGE IS JUST in the following method ... the rest is pure c&p 
+    // THE PROPOSED CHANGE IS JUST in the following 3 methods ... the rest is pure c&p 
     //
     
+    
+    //
+    // Dealing with single DBRef
+    //
     @SuppressWarnings("unchecked")
 	private <T> T potentiallyReadOrResolveDbRef(DBRef dbref, TypeInformation<?> type, ObjectPath path, Class<?> rawType) {
 		if (rawType.equals(DBRef.class)) {
 			return (T) dbref;
 		}
 		Object object = dbref == null ? null : path.getPathItem(dbref.getId(), dbref.getCollectionName());
+        //CHANGE STARTS
 		if (object != null) {
 			return (T) object;
 		} else {
-            DBObject readRef = readRef(dbref);
-            // after load event
-            ((ApplicationEventPublisher)this.applicationContext).publishEvent(new AfterLoadEvent<T>(readRef, (Class<T>)rawType));
-            T t = (T) read(type, readRef, path);
-            // after convert event
-            ((ApplicationEventPublisher)this.applicationContext).publishEvent(new AfterConvertEvent<T>(readRef,t));
-            return t;
+            return readAndConvertDBRef(dbref, type, path, rawType);
         }
+        //CHANGE ENDS
 	}
     
+    //
+    // Dealing with a Collection of DBRef
+    //
+    private Object readCollectionOrArray(TypeInformation<?> targetType, BasicDBList sourceValue, ObjectPath path) {
+
+		Assert.notNull(targetType, "Target type must not be null!");
+		Assert.notNull(path, "Object path must not be null!");
+
+		Class<?> collectionType = targetType.getType();
+
+		if (sourceValue.isEmpty()) {
+			return getPotentiallyConvertedSimpleRead(new HashSet<Object>(), collectionType);
+		}
+
+		TypeInformation<?> componentType = targetType.getComponentType();
+		Class<?> rawComponentType = componentType == null ? null : componentType.getType();
+
+		collectionType = Collection.class.isAssignableFrom(collectionType) ? collectionType : List.class;
+		Collection<Object> items = targetType.getType().isArray() ? new ArrayList<Object>() : CollectionFactory.createCollection(collectionType, rawComponentType, sourceValue.size());
+
+		for (int i = 0; i < sourceValue.size(); i++) {
+
+			Object dbObjItem = sourceValue.get(i);
+
+			if (dbObjItem instanceof DBRef) {
+                //CHANGE STARTS
+                if (DBRef.class.equals(rawComponentType)) {
+                    items.add(dbObjItem);
+                } else {
+                    items.add(readAndConvertDBRef((DBRef)dbObjItem, componentType, path, rawComponentType));
+                }
+                // CHANGE ENDS
+			} else if (dbObjItem instanceof DBObject) {
+				items.add(read(componentType, (DBObject) dbObjItem, path));
+			} else {
+				items.add(getPotentiallyConvertedSimpleRead(dbObjItem, rawComponentType));
+			}
+		}
+
+		return getPotentiallyConvertedSimpleRead(items, targetType.getType());
+	}
+    
+    //
+    // NEW METHOD
+    //
+    private <T> T readAndConvertDBRef(DBRef dbref, TypeInformation<?> type, ObjectPath path, Class<?> rawType) {
+        DBObject readRef = readRef(dbref);
+        // after load event
+        ((ApplicationEventPublisher)this.applicationContext).publishEvent(new AfterLoadEvent<T>(readRef, (Class<T>)rawType));
+        T t = (T) read(type, readRef, path);
+        // after convert event
+        ((ApplicationEventPublisher)this.applicationContext).publishEvent(new AfterConvertEvent<T>(readRef,t));
+        return t;
+    }
     
     
     //
@@ -156,41 +209,6 @@ extends      MappingMongoConverter {
 		} else {
 			return (T) getPotentiallyConvertedSimpleRead(value, rawType);
 		}
-	}
-    
-    
-	private Object readCollectionOrArray(TypeInformation<?> targetType, BasicDBList sourceValue, ObjectPath path) {
-
-		Assert.notNull(targetType, "Target type must not be null!");
-		Assert.notNull(path, "Object path must not be null!");
-
-		Class<?> collectionType = targetType.getType();
-
-		if (sourceValue.isEmpty()) {
-			return getPotentiallyConvertedSimpleRead(new HashSet<Object>(), collectionType);
-		}
-
-		TypeInformation<?> componentType = targetType.getComponentType();
-		Class<?> rawComponentType = componentType == null ? null : componentType.getType();
-
-		collectionType = Collection.class.isAssignableFrom(collectionType) ? collectionType : List.class;
-		Collection<Object> items = targetType.getType().isArray() ? new ArrayList<Object>() : CollectionFactory
-				.createCollection(collectionType, rawComponentType, sourceValue.size());
-
-		for (int i = 0; i < sourceValue.size(); i++) {
-
-			Object dbObjItem = sourceValue.get(i);
-
-			if (dbObjItem instanceof DBRef) {
-				items.add(DBRef.class.equals(rawComponentType) ? dbObjItem : read(componentType, readRef((DBRef) dbObjItem), path));
-			} else if (dbObjItem instanceof DBObject) {
-				items.add(read(componentType, (DBObject) dbObjItem, path));
-			} else {
-				items.add(getPotentiallyConvertedSimpleRead(dbObjItem, rawComponentType));
-			}
-		}
-
-		return getPotentiallyConvertedSimpleRead(items, targetType.getType());
 	}
     
     @SuppressWarnings({ "rawtypes", "unchecked" })

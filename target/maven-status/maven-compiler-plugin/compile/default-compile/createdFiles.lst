@@ -1,0 +1,15 @@
+proposal\MongoDbConfiguration.class
+demo\DemoApplication.class
+demo\DaoConfiguration.class
+org\springframework\data\mongodb\core\convert\CustomMappingMongoConverter.class
+demo\model\AfterEvent.class
+org\springframework\data\mongodb\core\convert\CustomMappingMongoConverter$1.class
+demo\model\Root.class
+org\springframework\data\mongodb\core\convert\CustomMappingMongoConverter$2.class
+org\springframework\data\mongodb\core\convert\CustomMappingMongoConverter$ConverterAwareSpELExpressionParameterValueProvider.class
+org\springframework\data\mongodb\core\convert\CustomMappingMongoConverter$MongoDbPropertyValueProvider.class
+demo\MongoEventListeener.class
+demo\repository\RootRepository.class
+demo\model\Related.class
+demo\repository\RelatedRepository.class
+demo\model\Parent.class

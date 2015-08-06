@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="demo.DemoApplicationTests" time="0.217" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Java\jdk1.8.0\jre\bin"/>
+    <property name="java.vm.version" value="25.0-b70"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="demo.DemoApplicationTests"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\repository\git\demo"/>
+    <property name="java.runtime.version" value="1.8.0-b132"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Java\jdk1.8.0\jre\lib\endorsed"/>
+    <property name="os.arch" value="x86"/>
+    <property name="java.io.tmpdir" value="C:\Users\jllach\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 8.1"/>
+    <property name="maven.ext.class.path" value="C:\Users\jllach\AppData\Roaming\NetBeans\8.0\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Java\apache-maven-3.2.5\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Java\jdk1.8.0\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Subversion\bin;C:\Program Files\MySQL\MySQL Server 5.1\bin;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files (x86)\sbt\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Java\Scala\scalate-1.6.1/bin;C:\Program Files\nodejs\;C:\Java\gradle-1.11\bin;C:\Java\apache-maven-2.2.1\bin;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\HashiCorp\Vagrant\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\jllach\AppData\Roaming\npm;C:\Java\apache-maven-2.2.1/bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="6.3"/>
+    <property name="user.home" value="C:\Users\jllach"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="jllach"/>
+    <property name="java.class.path" value="C:\Java\apache-maven-3.2.5\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="C:\Java\jdk1.8.0\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=demo.DemoApplicationTests -Dmaven.ext.class.path=C:\Users\jllach\AppData\Roaming\NetBeans\8.0\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="ca"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0"/>
+    <property name="java.ext.dirs" value="C:\Java\jdk1.8.0\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Java\jdk1.8.0\jre\lib\resources.jar;C:\Java\jdk1.8.0\jre\lib\rt.jar;C:\Java\jdk1.8.0\jre\lib\sunrsasign.jar;C:\Java\jdk1.8.0\jre\lib\jsse.jar;C:\Java\jdk1.8.0\jre\lib\jce.jar;C:\Java\jdk1.8.0\jre\lib\charsets.jar;C:\Java\jdk1.8.0\jre\lib\jfr.jar;C:\Java\jdk1.8.0\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Java\apache-maven-3.2.5"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+  </properties>
+  <testcase name="test" classname="demo.DemoApplicationTests" time="0.217">
+    <failure message="after convert event NOT received in  ref content" type="java.lang.AssertionError">java.lang.AssertionError: after convert event NOT received in  ref content
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at demo.DemoApplicationTests.test(DemoApplicationTests.java:57)
+</failure>
+    <system-out><![CDATA[17:32:42.674 [main] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class demo.DemoApplicationTests].
+17:32:42.696 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+17:32:42.716 [main] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@13b32d7 declaringClass = 'demo.DemoApplicationTests', classes = '{class demo.MongoEmbeddedConfiguration, class demo.DemoApplication}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:32:42.726 [main] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [demo.DemoApplicationTests]
+17:32:42.733 [main] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [demo.DemoApplicationTests]: using defaults.
+17:32:42.746 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:32:42.761 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+17:32:42.763 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@10694f1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1814d18, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5a1b69, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@101eaf6]
+17:32:42.766 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.DemoApplicationTests]
+17:32:42.766 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.DemoApplicationTests]
+17:32:42.767 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.DemoApplicationTests]
+17:32:42.767 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.DemoApplicationTests]
+17:32:42.770 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.DemoApplicationTests]
+17:32:42.770 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.DemoApplicationTests]
+17:32:42.772 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@a7e666 testClass = DemoApplicationTests, testInstance = demo.DemoApplicationTests@bbe345, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@b8a058 testClass = DemoApplicationTests, locations = '{}', classes = '{class demo.MongoEmbeddedConfiguration, class demo.DemoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]].
+17:32:42.847 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:32:42.850 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:32:42.851 [main] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:32:42.852 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.2.5.RELEASE)
+
+2015-08-06 17:32:43.106  INFO 13624 --- [           main] demo.DemoApplicationTests                : Starting DemoApplicationTests on Llach-Laptop with PID 13624 (C:\repository\git\demo\target\test-classes started by jllach in C:\repository\git\demo)
+2015-08-06 17:32:43.141  INFO 13624 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@1167fb7: startup date [Thu Aug 06 17:32:43 CEST 2015]; root of context hierarchy
+2015-08-06 17:32:43.748  INFO 13624 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'daoConfiguration' of type [class demo.DaoConfiguration$$EnhancerBySpringCGLIB$$b6beba8a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2015-08-06 17:32:43.807  WARN 13624 --- [           main] c.j.s.embedmongo.EmbeddedMongoBuilder    : Unrecognised MongoDB version '2.6.5', this might be a new version that we don't yet know about. Attempting download anyway...
+2015-08-06 17:32:43.810  INFO 13624 --- [           main] c.j.s.embedmongo.EmbeddedMongoBuilder    : Initializing embedded MongoDB instance
+2015-08-06 17:32:43.860  INFO 13624 --- [           main] d.f.embed.process.store.Downloader       : Extract C:\Users\jllach\.embedmongo\win32\mongodb-win32-i386-2.6.5.zip : starting...
+2015-08-06 17:32:44.620  INFO 13624 --- [           main] d.f.embed.process.store.Downloader       : Extract C:\Users\jllach\.embedmongo\win32\mongodb-win32-i386-2.6.5.zip : finished
+2015-08-06 17:32:44.622  INFO 13624 --- [           main] c.j.s.embedmongo.EmbeddedMongoBuilder    : Starting embedded MongoDB instance
+2015-08-06 17:32:44.915  INFO 13624 --- [           main] d.f.embed.process.runtime.Executable     : de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@74e1f2
+2015-08-06 17:32:45.596  INFO 13624 --- [           main] demo.DemoApplicationTests                : Started DemoApplicationTests in 2.738 seconds (JVM running for 3.421)
+]]></system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: demo.DemoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.374 sec <<< FAILURE! - in demo.DemoApplicationTests
+test(demo.DemoApplicationTests)  Time elapsed: 0.217 sec  <<< FAILURE!
+java.lang.AssertionError: after convert event NOT received in  ref content
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at demo.DemoApplicationTests.test(DemoApplicationTests.java:57)
+

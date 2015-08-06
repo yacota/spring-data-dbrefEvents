@@ -5,6 +5,7 @@ import demo.model.Root;
 import proposal.MongoDbConfiguration;
 import demo.repository.RelatedRepository;
 import demo.repository.RootRepository;
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +37,7 @@ public class DemoApplicationTestsWithProposal {
         lazy  = relatedRepo.save(lazy);
                 
         rootRepo.deleteAll();
-        Root root = new Root(1L, embed, ref, lazy);
+        Root root = new Root(1L, embed, ref, lazy, Arrays.asList(ref, lazy), Arrays.asList(ref, lazy));
         rootRepo.save(root);
     }
     
@@ -48,16 +49,24 @@ public class DemoApplicationTestsWithProposal {
         
         Root findOne = rootRepo.findOne(1L);
         Assert.assertTrue(findOne.isConvertEventCalled());
-        // 3 because DBRef is eagerly fetched
-        Assert.assertEquals(3, MongoEventListeener.getAfetLoadEventsCounter());
+        // 5 because direct DBRef is eagerly fetched, and also the list of two DBRef is now also eagerly fetched
+        Assert.assertEquals(5, MongoEventListeener.getAfetLoadEventsCounter());
         // already embedded document does not trigger anything ... fine
         Assert.assertFalse(NICE_SENTENCE + " embedded content", findOne.getEmbed().isConvertEventCalled());
-        Assert.assertEquals(3, MongoEventListeener.getAfetLoadEventsCounter());
-        // dbref eager fetched ... fine
+        Assert.assertEquals(5, MongoEventListeener.getAfetLoadEventsCounter());
+        // dbref eager fetched, nothing new is fired ... fine
         Assert.assertTrue(NICE_SENTENCE + " ref content", findOne.getRef().isConvertEventCalled());
-        Assert.assertEquals(3, MongoEventListeener.getAfetLoadEventsCounter());
+        Assert.assertEquals(5, MongoEventListeener.getAfetLoadEventsCounter());
         // lazyDbRef fetched when accessing to it ... so the counter will increment
         Assert.assertTrue(NICE_SENTENCE + " lazy content", findOne.getLazyRef().isConvertEventCalled());
-        Assert.assertEquals(4, MongoEventListeener.getAfetLoadEventsCounter());
+        Assert.assertEquals(6, MongoEventListeener.getAfetLoadEventsCounter());
+        
+        // dealing with lists (ensuring all have received the callback)
+        Assert.assertEquals(0, findOne.getListRef().stream().filter(rel -> !rel.isConvertEventCalled()).count());
+        // list of dbRef already eagerly fetched
+        Assert.assertEquals(6, MongoEventListeener.getAfetLoadEventsCounter());
+        Assert.assertEquals(0, findOne.getListLazy().stream().filter(rel -> !rel.isConvertEventCalled()).count());
+        // now we have just fetched lazy relations contained in the list
+        Assert.assertEquals(8, MongoEventListeener.getAfetLoadEventsCounter());
     }
 }

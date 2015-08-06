@@ -6,6 +6,7 @@
 package demo.model;
 
 import java.io.Serializable;
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -30,13 +31,21 @@ implements   Serializable {
     @DBRef(lazy = true)
     private Related lazyRef;
     
+    // update adding list
+    @DBRef
+    private List<Related> listRef;
+    @DBRef(lazy = true)
+    private List<Related> listLazy;
+    
     @PersistenceConstructor
-    public Root(Long id, Related embed, Related ref, Related lazyRef) {
+    public Root(Long id, Related embed, Related ref, Related lazyRef, List<Related> listRef, List<Related> listLazy) {
         super();
         this.id = id;
         this.embed = embed;
         this.ref   = ref;
         this.lazyRef = lazyRef;
+        this.listRef = listRef;
+        this.listLazy = listLazy;
     }
     
     public Long getId() {
@@ -53,5 +62,13 @@ implements   Serializable {
 
     public Related getLazyRef() {
         return lazyRef;
+    }
+
+    public List<Related> getListRef() {
+        return listRef;
+    }
+
+    public List<Related> getListLazy() {
+        return listLazy;
     }
 }
